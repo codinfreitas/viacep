@@ -17,7 +17,7 @@ public class ConsultAdressController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public CepView sendCep( @RequestBody String cep) throws ViaCepException, ViaCepFormatException {
+    public String sendCep( @RequestBody CepView cep) throws ViaCepException, ViaCepFormatException {
         return customerCepService.findByCep(cep);
     }
 

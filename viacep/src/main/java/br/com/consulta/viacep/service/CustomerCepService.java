@@ -29,16 +29,21 @@ public class CustomerCepService {
         super();
     }
 
-    public CepView findByCep(String cep) throws ViaCepException, ViaCepFormatException {
 
-        if (ValidateCepUtil.validaCep(cep)){
+    public String findByCep(CepView cep) throws ViaCepException, ViaCepFormatException {
+
+
+        if ( ValidateCepUtil.validaCep( cep.getCep() ) ) {
 
             try {
                 HttpClient httpClient = HttpClient.newBuilder().connectTimeout(Duration.of(1, MINUTES)).build();
-                HttpRequest httpRequest = HttpRequest.newBuilder().GET().uri(URI.create(viaCepUrl + cep + "/json")).build();
+                HttpRequest httpRequest = HttpRequest.newBuilder().GET().uri(URI.create(viaCepUrl + cep.getCep() + "/json")).build();
                 HttpResponse<String> httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
                 log.info("[VIA CEP API] - [SEARCH RESULT: {}]", httpResponse.body());
-                return (CepView) gson.fromJson((String) httpResponse.body(), CepView.class);
+                CepView cepView = (CepView) gson.fromJson((String) httpResponse.body(), CepView.class);
+
+                String Error = getError(cepView);
+                return getString(cepView, Error);
             } catch (IOException e) {
                 e.printStackTrace();
                 throw new RuntimeException(e);
@@ -50,4 +55,30 @@ public class CustomerCepService {
 
         return null;
     }
+
+    private String getString(CepView cepView, String Error) {
+        if (Error == null) {
+            return cepView.returnInfo();
+        }else {
+            return Error;
+        }
+    }
+
+    private String getError(CepView cepView) {
+        if (cepView.getCep() == null || cepView.getCep().isBlank() || cepView.getCep().isEmpty() ){
+            return createMessage(cepView);
+        }
+        return null;
+    }
+
+    private String createMessage(CepView cepView){
+
+        return "{\n" +
+                "   ------- error client ------- " + "\n" +
+                "   code http: 400 - BAD REQUEST" + "\n" +
+                "   please inform a valid cep "  + "\n" +
+                "   ---------------------------- " + "\n" +
+                "}";
+    }
+
 }

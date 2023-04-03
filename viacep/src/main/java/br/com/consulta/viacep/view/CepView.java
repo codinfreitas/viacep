@@ -11,7 +11,12 @@ public class CepView {
     private String localidade;
     private String uf;
     private String frete;
+    private String cidade;
+    private String estado;
+    private String rua;
 
+    public CepView() {
+    }
 
     public String getCep() {
         return cep;
@@ -69,14 +74,40 @@ public class CepView {
         this.frete = frete;
     }
 
-    @Override
-    public String toString() {
-        return  "cep:'" + cep + '\'' +
-                "rua:'" + logradouro + '\'' +
-                "complemento:'" + complemento + '\'' +
-                "bairro:'" + bairro + '\'' +
-                "localidade='" + localidade + '\'' +
-                "uf='" + uf + '\'' +
-                "frete='" + ValidateCepUtil.getShipping(uf) + '\'';
+    public String getCidade() {
+        return cidade;
     }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public String returnInfo() {
+        return "{\n" +
+                "   \"cep\": " + "\"" + cep + "\"" + ",\n" +
+                "   \"rua:\" " + "\"" + logradouro + "\"" + ",\n" +
+                "   \"complemento\": " + "\"" + complemento + "\"" + ",\n" +
+                "   \"bairro\": " + "\"" + bairro + "\"" + ",\n" +
+                "   \"cidade\": " + "\"" + localidade + "\"" + ",\n" +
+                "   \"estado\": " + "\"" + uf + "\"" + ",\n" +
+                "   \"frete\": " + ValidateCepUtil.getShipping(uf) + "\n" +
+                "}";
+    }
+
 }
