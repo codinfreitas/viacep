@@ -26,11 +26,12 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
 
     private ApiInfo metaData() {
         return new ApiInfoBuilder()
-                .title("Spring Boot REST API")
-                .description("\"Spring Boot REST API for greeting people\"")
+                .title("REST API with Java 11 and Spring Boot")
+                .description("\"Development of a Rest api with Java programming language and Spring Boot backend framework.\n" +
+                        "Use of JUnit and Cucumber frameworks for testing.\"")
                 .version("1.0.0")
-                .license("Apache License Version 2.0")
-                .licenseUrl("https://www.apache.org/licenses/LICENSE-2.0\"")
+                .license("Apache License Version 1.0")
+                .licenseUrl("http://localhost:8080/swagger-ui.html#/consult-adress-controller\"")
                 .build();
     }
 
