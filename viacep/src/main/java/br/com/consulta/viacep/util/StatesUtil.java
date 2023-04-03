@@ -1,9 +1,8 @@
 package br.com.consulta.viacep.util;
 
-import java.lang.reflect.Array;
 import java.util.List;
 
-public class States {
+public class StatesUtil {
 
     //SUDESTE
     private static final String ESPIRITO_SANTO = "ES";
@@ -44,14 +43,12 @@ public class States {
 
     public static List<String> listStates() {
 
-        String[] strings = {ESPIRITO_SANTO, MINAS_GERAIS, RIO_DE_JANEIRO, SAO_PAULO,
+       return  List.of(ESPIRITO_SANTO, MINAS_GERAIS, RIO_DE_JANEIRO, SAO_PAULO,
                 GOIAS, MATO_GROSSO, MATO_GROSSO_DO_SUL, DISTRITO_FEDERAL,
                 ALAGOAS, BAHIA, CEARA, MARANHAO, PARAIBA, PERNANBUCO, PIAUI, RIO_GRANDE_DO_NORTE, SERGIPE,
                 PARANA, RIO_GRANDE_DO_SUL, SANTA_CATARINA,
                 ACRE, AMAPA, AMAZONAS, PARA, RONDONIA, RORAIMA, TOCANTINS
-        };
-
-        return List.of(strings);
+       );
     }
 
     public static String compareTo(String states) {

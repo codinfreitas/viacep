@@ -1,6 +1,6 @@
 package br.com.consulta.viacep.view;
 
-import br.com.consulta.viacep.util.ValidateCepUtil;
+import br.com.consulta.viacep.service.ValidateCepService;
 import io.swagger.annotations.ApiModelProperty;
 
 public class CepView {
@@ -114,7 +114,7 @@ public class CepView {
                 "   \"bairro\": " + "\"" + bairro + "\"" + ",\n" +
                 "   \"cidade\": " + "\"" + localidade + "\"" + ",\n" +
                 "   \"estado\": " + "\"" + uf + "\"" + ",\n" +
-                "   \"frete\": " + ValidateCepUtil.getShipping(uf) + "\n" +
+                "   \"frete\": " + ValidateCepService.getShipping(uf) + "\n" +
                 "}";
     }
 
