@@ -2,6 +2,7 @@ package br.com.consulta.viacep.util;
 
 import br.com.consulta.viacep.exception.ViaCepException;
 import br.com.consulta.viacep.exception.ViaCepFormatException;
+import br.com.consulta.viacep.view.CepView;
 
 import java.util.Objects;
 
@@ -19,7 +20,7 @@ public class ValidateCepUtil {
 
         String result = "";
         for (int i = 0; i < States.listStates().size(); i++){
-            if (estado.equals(States.listStates())){
+            if (estado.equals(States.listStates().get(i))){
                 result += States.compareTo(estado);
             }
         }

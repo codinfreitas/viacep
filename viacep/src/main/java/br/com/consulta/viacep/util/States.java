@@ -58,15 +58,15 @@ public class States {
 
         String result = null;
         if (states.equals(ESPIRITO_SANTO) || states.equals(MINAS_GERAIS) || states.equals(RIO_DE_JANEIRO) || states.equals(SAO_PAULO))
-            result = "R$ 7,85";
+            result = "7,85";
         if (states.equals(GOIAS) || states.equals(MATO_GROSSO) || states.equals(MATO_GROSSO_DO_SUL) || states.equals(DISTRITO_FEDERAL))
-            result = "R$ 12,50";
+            result = "12,50";
         if (states.equals(ALAGOAS) || states.equals(BAHIA) || states.equals(CEARA) || states.equals(MARANHAO) || states.equals(PARAIBA) || states.equals(PERNANBUCO) || states.equals(PIAUI) || states.equals(RIO_GRANDE_DO_NORTE) || states.equals(SERGIPE))
-            result = "R$ 15,98";
+            result = "15,98";
         if (states.equals(PARANA) || states.equals(RIO_GRANDE_DO_SUL) || states.equals(SANTA_CATARINA))
-            result = "R$ 17,30";
+            result = "17,30";
         if (states.equals(ACRE) || states.equals(AMAPA) || states.equals(AMAZONAS) || states.equals(PARA) || states.equals(RONDONIA) || states.equals(RORAIMA) || states.equals(TOCANTINS) )
-            result = "R$ 20,83";
+            result = "20,83";
 
         return result;
     }
