@@ -20,8 +20,8 @@ public class ConsultAdressController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    @ApiOperation(value = "search info with cep informed")
-    public String sendCep( @RequestBody CepView cep) throws ViaCepException, ViaCepFormatException {
+    @ApiOperation(value = "search info with cep informed in request")
+    public String sendCep( @RequestBody CepView cep) throws ViaCepException {
         return customerCepService.findByCep(cep);
     }
 
