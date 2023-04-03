@@ -1,14 +1,18 @@
 package br.com.consulta.viacep.view;
 
 import br.com.consulta.viacep.util.ValidateCepUtil;
+import io.swagger.annotations.ApiModelProperty;
 
 public class CepView {
 
     private String cep;
+    @ApiModelProperty(hidden = true)
     private String logradouro;
     private String complemento;
     private String bairro;
+    @ApiModelProperty(hidden = true)
     private String localidade;
+    @ApiModelProperty(hidden = true)
     private String uf;
     private String frete;
     private String cidade;
@@ -16,6 +20,10 @@ public class CepView {
     private String rua;
 
     public CepView() {
+    }
+
+    public CepView(String cep) {
+        this.cep = cep;
     }
 
     public String getCep() {
